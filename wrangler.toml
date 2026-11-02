@@ -1,0 +1,25 @@
+toml
+name = "espn-median-bot"
+main = "main.py"
+compatibility_date = "2026-10-26"
+compatibility_flags = ["python_workers"]
+
+# Linked KV Database Interface
+kv_namespaces = [
+    { binding = "MEDIAN_STORE", id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE" }
+]
+
+[triggers]
+crons = [
+    # End of Thursday Night Football (Approx 11:45 PM EST / 4:45 AM UTC Friday)
+    "45 4 * * 5",
+
+    # Every 5 minutes on Sunday (11:00 AM EST to 11:55 PM EST)
+    "*/5 16-23 * * 0",
+    "*/5 0-3 * * 1",
+
+    # Every 15 minutes on Monday Night Football (7:30 PM EST to 11:45 PM EST)
+    "30,45 0 * * 2",
+    "*/15 1-3 * * 2",
+    "0,15,30,45 4 * * 2"
+]
