@@ -1,7 +1,7 @@
 toml
 name = "espn-median-bot"
 main = "main.py"
-compatibility_date = "2026-10-26"
+compatibility_date = "2026-11-02"
 compatibility_flags = ["python_workers"]
 
 # Linked KV Database Interface
